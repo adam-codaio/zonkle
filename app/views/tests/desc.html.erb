@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Zonkle</title>
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= stylesheet_link_tag params[:controller], media: "all" %>
+</head>
+
+<body>
+  	  <div class="navbar navbar-default" id="navbar-nomargin">
+  	    <div class="navbar-inner">
+   	   	  <div class="container">
+            <a class="brand" id="logo" href="<%= root_path %>"><%=image_tag("zonklelogo.png")%></a>
+            <a class="brand" id="zonkle" href="<%= root_path %>">Zonkle</a>
+          </div>
+        </div>
+      </div>	
+
+<div class="container-fluid">
+	<img id="initialpicture" src="/assets/backyardpicture.jpg">
+	<div id="slogan">Putting people together, one party at a time</div>
+	<div class="span6" id="statement">Not all of us can afford a house with a spacious backyard. But we all occasionally wish we had one to host our friends for a party they will never forget.<b><i> Finding that unused space around the corner couldn't be easier.</b></i></div>
+</div>
+
+<div class="row middlespace" style="padding-left:5em;">
+    <button class="btn btn-inverse span3" onclick="alert('Under Construction!')"><img src="/assets/applelogo.png"><strong style="padding-left:1em;">Download for iPhone</strong></button>
+	<button class="btn btn-inverse span3" onclick="alert('Under Construction!')"><img src="/assets/androidlogo.png"><strong style="padding-left:.1em;">Download for Android</strong></button>
+	<button class="btn btn-inverse span3" style="height:3.4em;" onclick="alert('Under Construction!')"><strong>List your backyard</button>
+	<button class="btn btn-inverse span3" style="height:3.4em;" onclick="alert('Under Construction!')">Search for a space near you</strong></button>
+</div> 
+
+<!--	<div class="row largespace">
+		<div class="span8 offset2" id="words">Zonkle leverages smartphone technology and the social web to help homeowners with a vacant space connect with neighbors in search of a place to host a local get together</div>
+	</div>
+-->
+	<div class="row largespace">
+		<img class="offset2" src="/assets/smartphone.png" style="float:left">
+		<div class="span8" id="titles">Easy to use</div>
+		<div class="span8" id="words">Just launch the Zonkle app on your smartphone or tablet, find an available space close to you and click "book." That's it, your party is on! With another click, invite your Facebook friends. Listing your space is just as easy.</div>
+	</div>
+
+	<div class="row largespace">
+		<div class="span8 offset2" id="titles">Cheaper than renting</div>
+		<div class="span8 offset2" id="words">Spend 75% less than you would pay for a professional party venue. Choose from thousands of venues for the one that meets your desires and pay by the hour through Zonkle.</div>
+		<img src="/assets/piggy-bank-icon1.png">
+	</div>
+
+	<div class="row smallspace">
+		<img class="offset2" style="float:left" src="/assets/mortgage.png">
+		<div class="row smallspace">
+			<div class="span8" id="titles">Pay the bills</div>
+			<div class="span8" id="words">Let your neighbors help you with your mortgage while they enjoy your beautiful space.</div>
+		</div>
+	</div>
+
+	<div class="row largespace">
+		<div class="span8 offset2" id="titles">Host your dream party</div>
+		<div class="span8 offset2" id="words">Dazzle your guests with the engagement, graduation, birthday, or pool party you've always dreamed of.</div>
+		<img src="/assets/poolparty.png">
+	</div>
+
+	<div class="row smallspace">
+		<img class="offset2" style="float:left" src="/assets/neighbors.png">
+		<div class="row smallspace">
+			<div class="span8" id="titles">Get to know your neighbors</div>
+			<div class="span8" id="words">Don't rent from an impersonal company rep. Meet your neighbor, and make community building as fun as partying.</div>
+		</div>
+	</div>
+
+	<div class="row largespace">
+		<div class="span8 offset2" id="titles">Party close to home</div>
+		<div class="span8 offset2" id="words">Why have all of your friends travel to the other side of town? Party locally, save on gas and help the environment.</div>
+		<img src="/assets/map1.png">
+	</div>
+
+	<div class="row largespace">
+		<img class="offset2" style="float:left" src="/assets/recycling.png">
+		<div class="row smallspace">
+			<div class="span8" id="titles">Reuse</div>
+			<div class="span8" id="words">Utilize this unused space. Share with your neighbors and reduce waste.</div>
+		</div>
+	</div>
+
+	<div class="row largespace">
+		<div class="span8 offset2" id="titles">Relax</div>
+		<div class="span8 offset2" id="words">Zonkle provides $1M in insurance coverage in case something goes wrong. If you leave your neighbor's backyard clean, you'll get a discount next time around.</div>
+		<img src="/assets/buoy1.png">
+	</div>
+
+	<hr noshade size=4>
+
+	<div class="row largespace">
+		<div class="span12 offset1" id="titles">Step-by-step</div>
+	</div>
+
+	<div class="row middlespace">
+		<div class="span2 offset1" style="padding-top:7em;">
+			<img src="/assets/ownersarrow.png">
+		</div>
+		<div class="span2" id="stepbystep">1. List your vacant space online in just a few minutes.
+			<div class="row largespace" style="text-align:center">
+			<img src="/assets/calendaricon.png"></div>
+			<div class="row" style="text-align:center; margin-top:20px;"><img src="/assets/orangeup.png"></div>
+		</div>		
+		<div class="span2" id="stepbystep">2. You're notified of and get to approve any reservation requests.
+			<div class="row largespace" style="text-align:center">
+			<img src="/assets/email-icon.png"></div>
+			<div class="row" style="text-align:center; margin-top:11px;"><img src="/assets/orangeup.png"></div>
+		</div>
+		<div class="span2" id="stepbystep">3. Meet the host and verify their identity. Then build a lasting relationship with your neighbor.
+			<div class="row middlespace" style="text-align:center">
+			<img src="/assets/shakinghands.png"></div>
+			<div class="row" style="text-align:center; margin-top:16px;"><img src="/assets/orangeup.png"></div>
+		</div>
+		<div class="span2" id="stepbystep">4. Sit back and count your cash! No need to worry as Zonkle handles all billing and support for you.
+			<div class="row smallspace" style="text-align:center">
+			<img src="/assets/moneybag.png"></div>
+			<div class="row" style="text-align:center; margin-top:24px;"><img src="/assets/orangeup.png"></div>
+		</div>
+		<div class="span2" id="stepbystep">5. The renter will leave your venue sparkling at the end of their party. Don't forget to say thanks when you leave a review.
+			<div class="row smallspace" style="text-align:center">
+		    <div style="margin-left:24px"><img src="/assets/orangerating.png"></div></div>
+			<div class="row" style="text-align:center; margin-top:42px;"><img src="/assets/orangeup.png"></div>
+		</div>
+	</div>
+	
+	<hr class="span11 offset2" style="padding-top:0; margin-top:0; padding-bottom:0; margin-bottom:0;" noshade size=4>
+
+	<div class="row middlespace">
+		<div class="span2 offset1" style="padding-top:.8em;">
+			<img src="/assets/partyhostarrow.png">
+		</div>
+		<div class="span3" style="text-align:center; padding-top:.3em;">
+			<div class="row" style="margin-top:-36px; margin-bottom:1.5em;"><img src="/assets/bluedown.png"></div>
+			<img src="/assets/googlemapsicon.png">
+			<div class="row middlespace" id="stepbystep" style="padding-left:1.5em;">1. Search through thousands of venues to find the one right for you. Filter by size, location, and recent reviews to find the perfect space for you.</div>
+		</div>
+		<div class="span3" style="text-align:center; padding-top:.3em;">
+			<div class="row" style="margin-top:-36px; margin-bottom:1.5em;"><img src="/assets/bluedown.png"></div>
+			<img src="/assets/tableticon.png">
+			<div class="row smallspace" id="stepbystep" style="padding-left:2.4em;">2. When it's time for your party, gain access to your venue with a simple code for your smartphone or tablet.</div>
+		</div>
+		<div class="span2" style="text-align:center; padding-top:.3em;">
+			<div class="row" style="margin-top:-36px; margin-bottom:1.5em;"><img src="/assets/bluedown.png"></div>
+			<img src="/assets/balloonsicon.png">
+			<div class="row smallspace" id="stepbystep" style="padding-left:1.5em;">3. Party time! Zonkle has handled all of the details. All that's left for you to do is clean up after a great party.</div>
+		</div>
+		<div class="span2" style="text-align:center; padding-top:.3em;">
+			<div class="row" style="margin-top:-36px; margin-bottom:1.5em;"><img src="/assets/bluedown.png"></div>
+			<img src="/assets/bluerating.png">
+			<div class ="row smallspace" id="stepbystep" style="padding-left:1.5em;">4. Once you've finished cleaning up, you can head on your way. Don't forget to say thanks when you leave a review after!</div>
+		</div>
+	</div>
+	
+	<div class="row largespace">
+		<div class="offset11"><%= link_to("Next", {:action => "start"}, :class => "btn btn-info") %></div>
+	</div>
+
+	<div class="row largespace"></div>
+
+</body>
+</html>

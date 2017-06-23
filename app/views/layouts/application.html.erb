@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zonkle</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="container-fluid">
+
+  <div class="navbar navbar-default">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" id="logo" href="<%= root_path %>"><%=image_tag("zonklelogo.png")%></a>
+        <a class="brand" id="zonkle" href="<%= root_path %>">Zonkle</a>
+           <% if is_logged_in() %>
+      <ul class="nav">
+  	 	  <li><%= link_to 'Worlds', '/worlds' %></li>
+	  	  <li><%= link_to 'Setup', '/admin' %></li>
+        <li><%= link_to 'Tests', '/tests' %></li> 
+	 	    <li><%= link_to 'Labels', '/labels' %></li>
+	    </ul>
+
+	    <ul class="nav pull-right">
+	     	<li><%= link_to 'Logout', '/admin/logout' %></li>
+	    </ul>
+	   <% end %>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<%= yield %>
+</div>
+
+</body>
+</html>
+
+

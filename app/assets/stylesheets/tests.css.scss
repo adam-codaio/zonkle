@@ -1,0 +1,104 @@
+// Place all the styles related to the test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootswatch/readable/variables";
+
+@import "bootstrap";
+
+.testlabel {
+	width: 30em;
+	margin: 1em;
+	display: block;
+	float: left;
+}
+
+.navbar .brand {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-fluid{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+#logo{
+	padding-top:.4em;
+	padding-bottom:.1em;
+	padding-right:0px;
+	padding-left:3.8em;
+}
+
+#zonkle{
+	padding-top:.5em;
+	padding-left:.3em;
+	font-size:2em;
+}
+
+.largespace{
+	margin-top:50px;	
+}
+
+.middlespace{
+	margin-top:30px;
+}
+
+.smallspace{
+	margin-top:15px;
+}
+
+#navbar-nomargin{
+	margin-bottom:0px;
+}
+
+#initialpicture{
+	height:auto;
+	width:100%;
+}
+
+#slogan{
+	font-size:35px;
+	color:#228B22;
+	left:7em;
+	top:2.6em;
+	position:absolute;
+}
+
+#statement{
+	font-size:15px;
+	color:gray;
+	left:40em;
+	top:10em;
+	position:absolute;
+}
+
+#words{
+	font-size:18px;
+	line-height:150%;
+}
+
+#titles{
+	font-size:26px;
+	line-height:150%;
+}
+
+#buttonstyles{
+	margin-left:0;
+}
+
+#stepbystep{
+	font-size:13px;
+	line-height:150%;
+	text-align:justify;
+}
+
+@import "bootstrap-responsive";
+
+@import "bootswatch/readable/bootswatch";
+
+
+
+
+
+

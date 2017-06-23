@@ -1,0 +1,33 @@
+<h1>Tests</h1>
+
+<table class="table table-striped">
+<thead>
+<tr>
+	<th>ID</th>
+	<th>View</th>
+	<th>Created</th>
+	<th>Browser</th>
+	<th>IP</th>
+	<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<% @tests.each do |test| %>
+<tr>
+	<td><%= test.id %></td>
+	<td><%= link_to 'View', test %></td>
+	<td><%= test.created_at.strftime("%m/%d %H:%M") %></td>
+	<td><%= test.browser %></td>
+	<td><%= test.ip %></td>
+	<td>
+	    <%= link_to test, :method => 'delete' do %>
+	    	<i class="icon-trash"></i>
+	    <% end %>
+	</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+Total: <%= @tests.length %>

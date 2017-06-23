@@ -1,0 +1,38 @@
+<p>
+Please select a label that best describes what Zonkle does. You can either
+select from the labels you have already seen or suggest a better one. Remember,
+your goal is to choose the best label, not necessarily propose a new one.
+</p>
+
+<p>
+We will randomly select a prize-winner from those participants who chose the
+label we end up using.
+</p>
+
+<%= form_for :test, :url => { :action => "create"},
+   :html => { :onsubmit => "return check_endlabel();", :id => "form"} do |f| %>
+	<input type="text" id="other" name="other" maxlength="30"
+	  placeholder="Enter label" required/>
+
+	<span id="meanstuff" style="display:none;">
+	Did you mean <a href="#" id="mean" onclick="do_mean();"></a>?
+	</span>
+
+	<br />
+
+	<input id="finish" type="submit" value="Finish" class="btn btn-info"/>
+<% end %>
+
+<!--
+
+<script>
+function validateForm() {
+var x=document.forms["form"]["other"].value;
+if (x==null || x=="") {
+  alert("Please enter a label.");
+  return false;
+  }
+}
+</script>
+
+-->

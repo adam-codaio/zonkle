@@ -1,0 +1,43 @@
+<h1>Worlds</h1>
+
+<p>
+Current world: <%= @current %>
+</p>
+
+<table class="table table-striped">
+<thead>
+<tr>    
+        <th>ID</th>
+        <th>Switch to</th>
+        <th>Tests done</th>
+        <th>Tests allowed</th>
+        <th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<% @worlds.each do |w| %>
+<tr>
+	<td><%= w.id %></td>
+	<td><% if w.id.to_i == @current.to_i %>
+		[current]
+	    <% else %>
+	     <%= link_to "Switch to", {:action => "switch", :id => w.id } %>
+	    <% end %>
+	</td>
+	<td><%= w.Tests.count %></td>
+	<td><% @part = w.Parameters.find_by_param("participants").value.to_i
+               @part = "infinite" if @part == 0
+	     %><%= @part %>
+	</td>
+	<td><%= link_to w, :method => 'delete' do %>
+                <i class="icon-trash"></i>
+            <% end %>
+	</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<%= button_to("New world", {:action => "create"}, :class => "btn btn-primary") %>
+<%= link_to("Download all data", {:action => "download"}, :class => "btn") %>

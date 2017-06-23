@@ -1,0 +1,39 @@
+<h1>Admin</h1>  
+<%
+def selected(param, algo)
+	if param.value == algo.name %>
+		selected="selected"
+	<% end
+
+end %>
+
+<fieldset><legend>Setup</legend>
+<form method="POST" action="/admin/save" class="form-horizontal">
+<% for p in @parameters %>
+  <div class="control-group">
+	<label class="control-label" for="<%= p.param %>"><%= p.desc %></label>
+	<div class="controls">
+
+		<% if p.param.start_with?("algo_") %>
+			<select name="<%= p.param %>" id="<%= p.param %>">
+			<% for a in Algorithm.where(:atype => ALGO_SUBJECT) %>
+			  <option value="<%= a.name %>" <% selected(p, a) %>><%= a.name %></option>
+			<% end %>
+			</select>
+		<% else %>
+		<input name="<%= p.param %>" id="<%= p.param %>"
+			type="text" value="<%= p.value %>" />
+		<% end %>
+	</div>
+  </div>
+<% end %>
+
+<div class="control-group">
+<div class="controls">
+<button type="submit" class="btn">Save</button>
+</div>
+</div>
+
+<input name="authenticity_token" value="" type="hidden">
+</form>
+</fieldset>

@@ -1,0 +1,151 @@
+<h1>Test Results</h1>
+
+<dl class="dl-horizontal">
+ <dt>Test</dt><dd><%= @test.id %></dd>
+ <dt>World</dt><dd><%= @world.id %></dd>
+ <dt>Explicit label</dt><dd><%= @explicit %></dd>
+ <dt>End label</dt><dd><%= @endl %></dd>
+ <dt>Subject used</dt><dd><% if not @subject %>none<% else %>
+	   <%= link_to @subject.id, {:action => "show", :id => @subject.id } %>
+		   <% end %></dd>
+ <dt>IP</dt><dd><%= @test.ip %></dd>
+ <dt>Browser</dt><dd><%= @test.browser %></dd>
+ <dt>Time</dt><dd><%= @test.created_at %></dd>
+</dl>
+
+<h2>Label selection</h2>
+<table class="table table-striped">
+<% num = 0
+   @results.each do |r| %>
+	<tr>
+	<% 
+	   if r.labela_id == r.choice_id
+		ca = "bold"
+		cb = ""
+	    else
+		cb = "bold"
+		ca = ""
+	   end
+
+	   num += 1
+	%>
+
+	<td><%= num %></td>
+	<td><span class="<%= ca %>"><%= Label.find(r.labela_id).desc %></span></td>
+	<td><span class="<%= cb %>"><%= Label.find(r.labelb_id).desc %></span></td>
+	</tr>
+<% end %>
+</table>
+
+<% def show_label_data(l, diff) %>
+	<td><%= "%d" % l.indeg %></td>
+	<td><%= "%d" % l.outdeg %></td>
+	<td><%= "%.2f" % l.rank %><% if diff %>
+		<strong> / <%= "%.2f" % @difflabel.rank %></strong>
+	<% end %></td>
+	<td><%= "%.2f" % l.prob %></td>
+<% end %>
+
+<% @diffend = @nextlabels != @outlabels
+
+#################
+# Diff end basically means whether the user chose a different end label.  This
+# introduces a slight complication because the output of the test / ranks of
+# labels is different from the ranks that will be used in the next test because
+# the lowest ranking label will be replaced with the end label.  So in this case
+# we need to show both the test results and the next labels (with replacement).
+#
+
+def diff_end_label(l) 
+	return false if not @diffend
+
+	for e in @nextlabels
+		return false if l.label == e.label
+	end
+
+	for l in @nextlabels
+		if @endl == Label.find(l.label).desc
+			@difflabel = l
+			break
+		end
+	end
+
+	return @endl
+end
+%>
+
+
+<h2>Label ranks</h2>
+<table class="table table-striped table-bordered table-hover">
+<thead>
+ <tr>
+ <th></th>
+ <th></th>
+ <th colspan="4">Input</th>
+ <th colspan="4">Output</th>
+ <% if @diffend %>
+ <th>Next</th>
+ <% end %>
+ </tr>
+
+ <tr>
+ <th>#</th>
+ <th>Label</th>
+
+<% def print_heading() %>
+ <th>In-deg</th>
+ <th>Out-deg</th>
+ <th>Rank</th>
+ <th>Prob</th>
+<% end
+   
+   print_heading()
+   print_heading()
+  %>
+
+ <% if @diffend %>
+ <th>Prob</th>
+ <% end %>
+ </tr>
+</thead>
+
+<tbody>
+<% num = 0
+   @inlabels.each do |i| %>
+	<tr>
+	<% diff = diff_end_label(i) %>
+	<td><%= num += 1 %></td>
+	<td><%= Label.find(i.label).desc %><% if diff %>
+	    <strong> / <%= diff %></strong>
+	<% end %></td>
+	<% show_label_data(i, nil) 
+
+	   for l in @outlabels
+	   	if l.label == i.label
+			show_label_data(l, diff)
+			break
+		end
+	   end
+
+	   if @diffend
+	   	did = false
+	   	for l in @nextlabels
+			if l.label == i.label %>
+				<td><%= "%.2f" % l.prob %></td>
+			<% 
+				did = true
+				break
+			
+			end
+		end
+
+		if not did %>
+			<td><strong><%= "%.2f" % @difflabel.prob %></strong></td>
+		<% end
+	   end
+	%>
+
+	</tr>
+<% end %>
+</tbody>
+</table>

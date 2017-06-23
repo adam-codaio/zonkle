@@ -1,0 +1,28 @@
+<p>
+Which of the following labels best describes what Zonkle does?
+</p>
+
+<div class="testlabel">
+<a href="#" onClick="display_next(0);" id="label1" class="btn btn-large btn-info span4"></a>
+</div>
+
+<div class="testlabel">
+<a href="#" onClick="display_next(1);" id="label2" class="btn btn-large btn-info span4"></a>
+</div>
+
+<div style="clear: both;"></div>
+<span id="num"></span>/<%= @items.length %>
+
+<%= form_for :test, :url => { :action => "save"}, 
+	:html => { :id => "rform"} do |f| %>
+
+	<input type="hidden" value="" id="results" name="results" />
+<% end %>
+
+<script>
+labels = <%=raw @items.to_json %>;
+
+$(document).ready(function() {
+        display_next(-1);
+});
+</script>

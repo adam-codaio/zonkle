@@ -1,0 +1,17 @@
+<h1>Labels</h1>
+
+<ol>
+<% @labels.each do |label| %>
+	<% cl = ""
+	   cl = "bold" if label.seed
+	%>
+	<li>
+	    <%= link_to label, :method => 'delete' do %>
+	    	<i class="icon-trash"></i>
+	    <% end %>
+	    <span class="<%= cl %> lab"><%= label.desc %></span>
+	</li>
+<% end %>
+</ol>
+
+<%= link_to 'New label', {:action => 'new'}, :class => "btn btn-primary" %>
